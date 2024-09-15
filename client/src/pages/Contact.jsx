@@ -22,12 +22,12 @@ const Contact = () => {
     }
 
     try {
-      await emailjs.send(
-        'service_medibook_query', 
-        'template_w65rxdz', 
-        params,
-        'GN3KFYKwdeK_zBagJ'
-      );
+  await emailjs.send(
+    process.env.REACT_APP_EMAILJS_SERVICE_ID,
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+    params,
+    process.env.REACT_APP_EMAILJS_USER_ID
+  );
       showNotification("Email sent successfully!", 'success');
       form.reset();
     } catch (error) {
